@@ -9,7 +9,7 @@
 # um parâmetro para aquela variável.
 class Caneta:
     def __init__(self, cor):
-        # private
+        # _protected
         self._cor = cor
         self._cor_tampa = None
 
