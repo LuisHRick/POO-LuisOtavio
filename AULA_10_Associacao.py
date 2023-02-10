@@ -19,18 +19,22 @@ class Escritor:
 
     @ferramenta.setter
     def ferramenta(self, ferramenta):
-        return self._ferramenta
+        self._ferramenta = ferramenta
 
-class Ferramenta:
+
+class FerramentaDeEscrever:
     def __init__(self, nome):
         self.nome = nome
-    
+
     def escrever(self):
         return f'{self.nome} está escrevendo'
 
 
+escritor = Escritor('Luiz')
+caneta = FerramentaDeEscrever('Caneta Bic')
+maquina_de_escrever = FerramentaDeEscrever('Máquina')
+escritor.ferramenta = maquina_de_escrever
 
-ESCRITOR = Escritor('Luis')
-FERRAMENTA = Ferramenta('BIC')
-
-ESCRITOR.ferramenta = 'Caneta'
+print(caneta.escrever())
+print(maquina_de_escrever.escrever())
+print(escritor.ferramenta.escrever())
