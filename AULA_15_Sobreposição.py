@@ -51,9 +51,8 @@ class B(A):
         print('B')
 
 
-# Para o primeiro parâmetro dentro de B, por padrão, será a própria
-# classe e self, retornando a função da classe mão da classe dada como
-# parâmetro. 
+# Para o primeiro parâmetro dentro de B, por padrão, será a própria classe e self, 
+# retornando a função da classe mãe da classe dada como parâmetro. 
 # Se o parâmetro for alterado para outra classe, então, ele retornará da 
 # classe mãe da classe colocada como parâmetro.
 #    Exemplo: padrao: C -> B      B -> A       SUPER() / SUPER(C, SELF)
