@@ -1,4 +1,4 @@
-from log_17 import Log
+from log_17 import LogFileMixin, LogPrintMixin
 
 # Mixin:
 # Mixins são basicamente trechos de códigos que você vai precisar usar
