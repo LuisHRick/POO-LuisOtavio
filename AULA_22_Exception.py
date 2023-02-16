@@ -16,6 +16,7 @@ class OutroErro(Exception):
 
 def levantar():
     exception_ = ClassError('A mensagem do meu erro')
+    exception_.add_note('Você errou isso')
     raise exception_
 
 try:
