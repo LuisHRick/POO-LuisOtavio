@@ -1,7 +1,6 @@
 # Teoria: python Special Methods, Magic Methods ou Dunder Methods
 # Dunder = Double Underscore = __dunder__
-# Antigo e útil: https://rszalski.github.io/magicmethods/
-# https://docs.python.org/3/reference/datamodel.html#specialnames
+# https://mathspp.com/blog/pydonts/dunder-methods#:~:text=What%20are%20dunder%20methods%3F,__%20or%20__add__%20.
 # __lt__(self,other) - self < other
 # __le__(self,other) - self <= other
 # __gt__(self,other) - self > other
