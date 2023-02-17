@@ -35,6 +35,14 @@ class MyOpen:
         print('FECHANDO ARQUIVO ====')
         self._arquivo.close()
 
+        # raise class_exception('Mensagem Exception')
+
+        # print(class_exception)
+        # print(exception_)
+        # print(traceback_)
+
+        # return True
+
 instance_ = MyOpen('aula23.txt', 'w')
 
 with instance_ as arquivo:
