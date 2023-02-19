@@ -1,9 +1,10 @@
-def adiciona_repr(cls):
-    def meurepr(self):
+def meurepr(self):
         class_name = self.__class__.__name__
         class_dict = self.__dict__
         class_repr = f'{class_name}({class_dict})'
         return class_repr
+
+def adiciona_repr(cls):
     cls.__repr__ = meurepr
     return cls
 
