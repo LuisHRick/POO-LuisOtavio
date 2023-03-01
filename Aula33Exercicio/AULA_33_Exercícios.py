@@ -5,7 +5,7 @@ um banco. A ideia é que o cliente tenha uma conta (poupança ou corrente) e que
 possa sacar/depositar nessa conta. Contas corrente tem um limite extra.
 """
 from abc import ABC, abstractmethod
-from contas import Conta
+from contas import Conta, ContaPoupanca
 
 # class Conta(ABC):
 #     def __init__(self, agencia, numconta, saldo) -> None:
@@ -19,21 +19,21 @@ from contas import Conta
 #     @abstractmethod
 #     def sacar(self): ...
 
-class ContaCorrente(Conta):
-    def __init__(self, agencia, numconta, saldo) -> None:
-        super().__init__(agencia, numconta, saldo)
+# class ContaCorrente(Conta):
+#     def __init__(self, agencia, numconta, saldo) -> None:
+#         super().__init__(agencia, numconta, saldo)
 
-    def sacar(self, valor):
-        print(f'Sacando R${valor}')
-        self._saldo -= valor
+#     def sacar(self, valor):
+#         print(f'Sacando R${valor}')
+#         self._saldo -= valor
 
-class ContaPoupanca(Conta):
-    def __init__(self, agencia, numconta, saldo) -> None:
-        super().__init__(agencia, numconta, saldo)
+# class ContaPoupanca(Conta):
+#     def __init__(self, agencia, numconta, saldo) -> None:
+#         super().__init__(agencia, numconta, saldo)
     
-    def sacar(self, valor):
-        print(f'Sacando R${valor}')
-        self._saldo -= valor
+#     def sacar(self, valor):
+#         print(f'Sacando R${valor}')
+#         self._saldo -= valor
 class Pessoa():
     def __init__(self, nome, idade) -> None:
         self._nome = nome

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 class Conta(ABC):
-    def __init__(self, agencia, numconta, saldo) -> None:
+    def __init__(self, agencia, numconta, saldo=0) -> None:
         self._agencia = agencia
         self._numconta = numconta
         self._saldo = saldo
@@ -22,9 +22,6 @@ class Conta(ABC):
         print('=' * 50)
 
 class ContaPoupanca(Conta):
-    def __init__(self, agencia, numconta, saldo) -> None:
-        super().__init__(agencia, numconta, saldo)
-    
     def sacar(self, valor: int):
         if isinstance(valor, int):
             valor_pos_saque = self._saldo - valor
@@ -39,11 +36,41 @@ class ContaPoupanca(Conta):
         else:
             raise ValueError
 
-
+class ContaCorrente(Conta):
+    def __init__(self, agencia, numconta, saldo=0, limite=0) -> None:
+        super().__init__(agencia, numconta, saldo)
+        self.limite = limite
+    
+    def sacar(self, valor: int):
+        if isinstance(valor, int):
+            valor_pos_saque = self._saldo - valor
+            limite_maximo = -self.limite
+            
+            if valor_pos_saque >= limite_maximo:
+                self._saldo -= valor
+                self.detalhes(f'(SAQUE R${valor:.2f})')
+                return self._saldo
+            
+            print('Não foi possivel sacar o valor desejado')
+            print(f'Seu limite é {-self.limite:.2f}')
+            self.detalhes(f'(SAQUE NEGADO R${valor:.2f})')
+        else:
+            raise ValueError
 
 
 if __name__ == '__main__':
-    cp1 = ContaPoupanca(111, 222, 0)
+    cp1 = ContaPoupanca(111, 222)
     cp1.sacar(1)
-    cp1.depositar(1)
-    cp1.sacar(1)
+    cp1.depositar(100)
+    cp1.sacar(100)
+
+    print('#' * 50)
+
+    cc1 = ContaCorrente(111, 222, 0, 100)
+    cc1.sacar(1)
+    cc1.depositar(100)
+    cc1.sacar(99)
+    cc1.sacar(100)
+    cc1.sacar(100)
+    
+    print('#' * 50)
