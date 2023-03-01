@@ -5,18 +5,19 @@ um banco. A ideia é que o cliente tenha uma conta (poupança ou corrente) e que
 possa sacar/depositar nessa conta. Contas corrente tem um limite extra.
 """
 from abc import ABC, abstractmethod
+from contas import Conta
 
-class Conta(ABC):
-    def __init__(self, agencia, numconta, saldo) -> None:
-        self._agencia = agencia
-        self._numconta = numconta
-        self._saldo = saldo
+# class Conta(ABC):
+#     def __init__(self, agencia, numconta, saldo) -> None:
+#         self._agencia = agencia
+#         self._numconta = numconta
+#         self._saldo = saldo
 
-    def deposito(self, dep):
-        self._saldo += dep
+#     def deposito(self, dep):
+#         self._saldo += dep
 
-    @abstractmethod
-    def sacar(self): ...
+#     @abstractmethod
+#     def sacar(self): ...
 
 class ContaCorrente(Conta):
     def __init__(self, agencia, numconta, saldo) -> None:
