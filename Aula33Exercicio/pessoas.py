@@ -39,5 +39,5 @@ if __name__ == '__main__':
     print(c1)
     print(c1.nome)
 
-    c1.conta = contas.ContaCorrente(123, 456, 0, 0)
+    c1.conta = contas.ContaCorrente(123, 456, 0, 100)
     print(c1.conta)

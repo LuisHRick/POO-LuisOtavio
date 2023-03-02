@@ -65,6 +65,12 @@ class ContaCorrente(Conta):
         else:
             raise ValueError
 
+        def __repr__(self) -> str:
+            class_name = type(self).__name__
+            attrs = f'({self._agencia!r},{self._numconta!r},{self._saldo!r})'\
+                f'{self.limite!r}'
+            return f'{class_name}{attrs}'
+
 
 if __name__ == '__main__':
     cp1 = ContaPoupanca(111, 222)
