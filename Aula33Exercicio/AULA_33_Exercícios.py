@@ -7,6 +7,7 @@ possa sacar/depositar nessa conta. Contas corrente tem um limite extra.
 from abc import ABC, abstractmethod
 
 from contas import Conta, ContaCorrente, ContaPoupanca
+from pessoas import Pessoa
 
 # class Conta(ABC):
 #     def __init__(self, agencia, numconta, saldo) -> None:
@@ -37,26 +38,26 @@ from contas import Conta, ContaCorrente, ContaPoupanca
 #         self._saldo -= valor
 
 
-class Pessoa():
-    def __init__(self, nome, idade) -> None:
-        self._nome = nome
-        self._idade = idade
+# class Pessoa():
+#     def __init__(self, nome, idade) -> None:
+#         self._nome = nome
+#         self._idade = idade
 
-    @property
-    def idade(self):
-        return self._idade
+#     @property
+#     def idade(self):
+#         return self._idade
 
-    @idade.setter
-    def idade(self, idade):
-        self._idade = idade
+#     @idade.setter
+#     def idade(self, idade):
+#         self._idade = idade
 
-    @property
-    def nome(self):
-        return self._nome
+#     @property
+#     def nome(self):
+#         return self._nome
 
-    @nome.setter
-    def nome(self, nome):
-        self._nome = nome
+#     @nome.setter
+#     def nome(self, nome):
+#         self._nome = nome
 
 
 class Cliente(Pessoa):
