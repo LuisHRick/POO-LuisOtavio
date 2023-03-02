@@ -60,9 +60,9 @@ from pessoas import Pessoa
 #         self._nome = nome
 
 
-class Cliente(Pessoa):
-    def __init__(self, nome, idade) -> None:
-        super().__init__(nome, idade)
+# class Cliente(Pessoa):
+#     def __init__(self, nome, idade) -> None:
+#         super().__init__(nome, idade)
 
 
 # class Banco():

@@ -18,6 +18,11 @@ class Conta(ABC):
         else:
             raise ValueError
 
+    def __repr__(self) -> str:
+        class_name = type(self).__name__
+        attrs = f'({self._agencia!r}, {self._numconta!r}, {self._saldo!r})'
+        return f'{class_name}{attrs}'
+
     def detalhes(self, msg: str = '') -> None:
         print(f'O seu saldo é R${self._saldo:.2f}, {msg}')
         print('=' * 50)
