@@ -3,40 +3,40 @@ from abc import ABC, abstractmethod
 
 class Conta(ABC):
     def __init__(self, agencia: int, numconta: int, saldo: float = 0) -> None:
-        self._agencia = agencia
-        self._numconta = numconta
-        self._saldo = saldo
+        self.agencia = agencia
+        self.numconta = numconta
+        self.saldo = saldo
 
     @abstractmethod
     def sacar(self, valor: float) -> float: ...
 
     def depositar(self, dep: int) -> float:
         if isinstance(dep, int):
-            self._saldo += dep
+            self.saldo += dep
             self.detalhes(f'(DEPÓSITO R${dep:.2f})')
-            return self._saldo
+            return self.saldo
         else:
             raise ValueError
 
     def __repr__(self) -> str:
         class_name = type(self).__name__
-        attrs = f'({self._agencia!r}, {self._numconta!r}, {self._saldo!r})'
+        attrs = f'({self.agencia!r}, {self.numconta!r}, {self.saldo!r})'
         return f'{class_name}{attrs}'
 
     def detalhes(self, msg: str = '') -> None:
-        print(f'O seu saldo é R${self._saldo:.2f}, {msg}')
+        print(f'O seu saldo é R${self.saldo:.2f}, {msg}')
         print('=' * 50)
 
 
 class ContaPoupanca(Conta):
     def sacar(self, valor: float):
         if isinstance(valor, float):
-            valor_pos_saque = self._saldo - valor
+            valor_pos_saque = self.saldo - valor
 
             if valor_pos_saque >= 0:
-                self._saldo -= valor
+                self.saldo -= valor
                 self.detalhes(f'(SAQUE R${valor:.2f})')
-                return self._saldo
+                return self.saldo
 
             print('Não foi possivel sacar o valor desejado')
             self.detalhes(f'(SAQUE NEGADO R${valor:.2f})')
@@ -51,13 +51,13 @@ class ContaCorrente(Conta):
 
     def sacar(self, valor: float):
         if isinstance(valor, float):
-            valor_pos_saque = self._saldo - valor
+            valor_pos_saque = self.saldo - valor
             limite_maximo = -self.limite
 
             if valor_pos_saque >= limite_maximo:
-                self._saldo -= valor
+                self.saldo -= valor
                 self.detalhes(f'(SAQUE R${valor:.2f})')
-                return self._saldo
+                return self.saldo
 
             print('Não foi possivel sacar o valor desejado')
             print(f'Seu limite é {-self.limite:.2f}')
