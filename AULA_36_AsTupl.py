@@ -10,5 +10,5 @@ class Pessoa:
 if __name__ == "__main__":
     nome = Pessoa('Luiz', 'Otavio')
     print(nome)
-    print(asdict(nome))
-    print(astuple(nome))
+    print(asdict(nome))   # Printa a classe como dicionário
+    print(astuple(nome))  # Printa a classe como tupla
