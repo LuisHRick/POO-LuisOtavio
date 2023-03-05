@@ -13,7 +13,7 @@ class Pessoa:
     nome: str
     sobrenome: str
 
-    def __post_init__(self):
+    def __post_init__(self):  # Precisa de um Init, executa aós o init
         self.nome_completo = f'{self.nome}, {self.sobrenome}'
 
     @property
