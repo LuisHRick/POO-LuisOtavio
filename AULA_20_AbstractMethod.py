@@ -6,24 +6,26 @@
 # para palavras que podem mudar na programação.
 from abc import ABC, abstractmethod
 
+
 class AbstractFoo(ABC):
-    def __init__(self, name):
+    def __init__(self, name):  # type: ignore
         self.name = name
         self._name = None
 
         @property
-        def name(self): 
+        def name(self):
             return self._name
 
         @name.setter
         @abstractmethod
         def name(self, name): ...
 
+
 class Foo(AbstractFoo):
     def __init__(self, nome):
         super().__init__(nome)
 
-    @AbstractFoo.name.setter
+    @AbstractFoo.name.setter  # type: ignore
     def name(self, name):
         self._name = name
 

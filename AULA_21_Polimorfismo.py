@@ -16,6 +16,7 @@
 
 from abc import ABC, abstractmethod
 
+
 class Notificação(ABC):
     def __init__(self, mensagem) -> None:
         self._mensagem = mensagem
@@ -23,15 +24,18 @@ class Notificação(ABC):
     @abstractmethod
     def enviar(self) -> bool: ...
 
+
 class NotificaçãoEmail(Notificação):
     def enviar(self) -> bool:
         print('E-mail: enviando: ', self._mensagem)
         return True
 
+
 class NotificaçãoSMS(Notificação):
     def enviar(self) -> bool:
         print('SMS: enviando: ', self._mensagem)
         return True
+
 
 def notificar(notificacao: Notificação):
     notificacao_enviada = notificacao.enviar()
@@ -39,6 +43,7 @@ def notificar(notificacao: Notificação):
         print('notificação enviada')
     else:
         print('Notificação não enviada')
+
 
 mensagem_sms = NotificaçãoSMS('Mensagem Teste -> SMS')
 notificar(mensagem_sms)
